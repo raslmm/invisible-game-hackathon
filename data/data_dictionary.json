@@ -1,0 +1,57 @@
+{
+  "project": "The Invisible Game",
+  "purpose": "Synthetic event-level football data for detecting persistent tactical exposure while distinguishing it from isolated dangerous events and benign high-possession patterns.",
+  "important_notice": "All teams, players, events, match dates, and labels are fictional and synthetically generated. This is not real Premier League data.",
+  "dataset_size": {
+    "matches": 60,
+    "events": 17280,
+    "players": 1320,
+    "match_windows": 360,
+    "ground_truth_labels": 360,
+    "evaluation_cases": 180
+  },
+  "files": {
+    "matches.csv": "One row per fictional match. Each of 12 scenario archetypes has five variants with mixed match-level outcomes.",
+    "events.csv": "Event-level observations. The two event flags reconcile dangerous turnovers and opponent attacking entries to each 15-minute window.",
+    "players.csv": "Fictional roster with unique synthetic full names and positions.",
+    "match_windows.csv": "Six 15-minute aggregates per match. Count and average fields are reconciled to events.csv.",
+    "ground_truth_labels.csv": "Window-level synthetic persistent-risk and transient-spike labels. These are constructed benchmark targets, not universal tactical truth.",
+    "evaluation_cases.csv": "Three distinct evaluation prompts per match. Expected answer criteria are for evaluation only and must not be model inputs.",
+    "data_dictionary.json": "Schema, provenance, definitions, recommended evaluation, and limitations."
+  },
+  "key_fields": {
+    "event_id": "Unique synthetic event ID.",
+    "match_id": "Join key to matches.csv.",
+    "timestamp_seconds": "Elapsed match time in seconds.",
+    "possession_id": "Synthetic possession sequence identifier.",
+    "x": "Longitudinal coordinate from 0 to 100; for synthetic analysis, higher values represent closer to the opponent goal.",
+    "y": "Lateral coordinate from 0 to 100; higher values correspond to the right channel from the attacking team's perspective in this simplified convention.",
+    "pressure_intensity": "Synthetic normalized index between 0 and 1.",
+    "defenders_behind_ball": "Synthetic count of players behind the ball at the event time.",
+    "recovery_speed_index": "Synthetic normalized index between 0 and 1; higher means faster recovery.",
+    "fatigue_index": "Synthetic normalized proxy between 0 and 1; not a physiological measurement.",
+    "expert_persistent_risk_label": "Synthetic ground-truth label for sustained exposure at the window level.",
+    "expert_transient_spike_label": "Synthetic label for a dangerous isolated spike that should not alone trigger a persistent-risk alert.",
+    "scenario_type": "Tactical setup archetype. Each archetype contains both positive and negative match variants; it is not a proxy for the target label.",
+    "is_dangerous_turnover": "Binary event flag set on a subject-team turnover judged to create immediate transition danger. Its window sum equals dangerous_turnovers_observed.",
+    "is_attacking_entry": "Binary event flag set when the opponent enters the attacking third. Its window sum equals opponent_attacking_entries.",
+    "evaluation_focus": "One of three evaluation tasks: risk assessment, spike-versus-pattern distinction, or tactical adjustment.",
+    "expert_risk_intensity": "Synthetic 0-1 indicator computed from turnover danger, opponent entries, recovery, and defensive cover. It is not a calibrated probability."
+  },
+  "recommended_validation": [
+    "Use a grouped split by scenario_type when evaluating transfer to unseen tactical archetypes. At minimum, keep all windows from a match_id in one split.",
+    "Exclude scenario_type, scenario_title, scenario_description, ground-truth labels, evaluation prompts and criteria, IDs, and generator metadata from model inputs.",
+    "Compare a turnover-count baseline with models that use dangerous-turnover counts, opponent entries, recovery, defensive cover, and temporal persistence.",
+    "Report precision, recall, F1, false-alert rate, and calibration at match and window levels. Do not treat windows as independent when estimating uncertainty.",
+    "Evaluate false_alarm, single_event_noise, recovery_success, and chaotic_endgame separately.",
+    "Use deterministic calculations for metrics. Use an LLM to explain validated findings rather than invent numeric facts."
+  ],
+  "limitations": [
+    "All teams, player names, matches, events, scores, scenarios, and labels are fictional and synthetic.",
+    "The 48 expanded matches are controlled perturbations of 12 seed archetypes. They increase variation for prototyping but do not provide 60 independent real-world observations.",
+    "Labels are constructed to test persistence, false alarms, and transient spikes. They are not universal tactical truth or evidence of real-world performance.",
+    "Pitch coordinates, pressure, recovery speed, fatigue, defensive cover, and event flags are simplified synthetic measures, not calibrated tracking data.",
+    "A grouped split by scenario_type is still a small synthetic benchmark and cannot establish real-world generalization."
+  ],
+  "dataset_version": "2.0.0"
+}
