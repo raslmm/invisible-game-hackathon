@@ -1,7 +1,0 @@
-# Project pitch — The Invisible Game
-
-**The Invisible Game is an explainable match-intelligence layer that turns synthetic football events into the story behind the scoreline.** Its live-style pipeline distinguishes repeated defensive exposure from an isolated dangerous moment, shows exactly which events support the finding, and adapts the same evidence for an analyst, casual fan, favourite-club follower, or player-focused viewer. At full time, it assembles a cited match recap and exports machine-readable JSON.
-
-The project uses a Python event and metrics engine plus a responsive local web experience. Its two-role Tactical Analyst → Fan Storyteller workflow can call a Microsoft Foundry Models-compatible endpoint for bounded narrative stages; the deterministic rules, evidence validator, and offline fallback keep the demo available without cloud credentials. No real Premier League data is included. The project helps production teams turn structured event feeds into clear, timely, audience-specific stories instead of showing unexplained statistics.
-
-**Technology claim for the submission:** Python standard library; local HTTP/JSON interface; synthetic CSV event stream; optional Microsoft Foundry Models OpenAI-compatible v1 endpoint. Azure cloud hosting, Microsoft Agent Framework, streaming services, video-based eventing, and real player tracking are not part of the current implementation.

@@ -1,10 +1,9 @@
 # The Invisible Game
 ### Explainable AI Match Intelligence for Football Broadcasts & Fans
 
-[![CI & Quality Checks](https://github.com/microsoft/invisible-game-hackathon/actions/workflows/ci.yml/badge.svg)](https://github.com/microsoft/invisible-game-hackathon/actions/workflows/ci.yml)
+[![CI & Quality Checks](https://github.com/raslmm/invisible-game-hackathon/actions/workflows/ci.yml/badge.svg)](https://github.com/raslmm/invisible-game-hackathon/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue)](https://www.python.org/)
 [![Azure AI Foundry](https://img.shields.io/badge/Azure%20AI%20Foundry-Compatible-0078D4?logo=microsoftazure)](https://learn.microsoft.com/en-us/azure/ai-foundry/)
-[![Data](https://img.shields.io/badge/Synthetic%20Data-100%25%20Realistic-brightgreen)](#data-and-evaluation)
 [![Zero Dependencies](https://img.shields.io/badge/Core%20Runtime-Zero%20Dependencies-purple)](#technology-stack)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -155,15 +154,3 @@ Run match analysis without loading labels:
 ```powershell
 python scripts/analyze_match.py --match-id IGM001
 ```
-
----
-
-## Submission Checklist & Manual Steps
-
-| Component | Status in Repository | Manual Action Required for Submission |
-|---|---|---|
-| **Working Codebase** | ✅ Complete, tested (21/21 tests pass) | Push code to your public GitHub repository |
-| **Project Pitch** | ✅ Ready in [`PROJECT_PITCH.md`](PROJECT_PITCH.md) | Copy elevator pitch into Hackathon submission portal |
-| **Demo Script** | ✅ Detailed <2min plan in [`DEMO_SCRIPT.md`](DEMO_SCRIPT.md) | Record your screen following the 95-second script |
-| **Demo Video** | ⏳ Scripted and timed (<120 seconds) | Upload video to YouTube/Vimeo and submit public URL |
-| **Azure Deployment** | ✅ Bicep & Dockerfile ready in [`infra/`](infra/) | (Optional) Run `az containerapp up` if submitting cloud URL |
