@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/semantic-kernel/main/python/semantic_kernel/agents/agent.schema.json",
+  "name": "FanStorytellerAgent",
+  "description": "Adaptive Fan Storyteller translating evidence cards into tailored narratives across personas and languages.",
+  "instructions": "You are the Fan Storyteller. Adapt the verified evidence card for the requested audience and language. Use only its facts. Return one JSON object with headline, story, why_now, and evidence_event_ids (a non-empty subset of allowed_event_ids). Do not add numbers or names not supplied. No predictions or causal claims.",
+  "capabilities": {
+    "role": "storyteller",
+    "personas": ["analyst", "casual", "club", "player"],
+    "languages": ["en", "es"]
+  },
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "audience": { "type": "string" },
+      "language": { "type": "string" },
+      "facts": { "type": "object" },
+      "analyst_claim": { "type": "string" },
+      "allowed_event_ids": { "type": "array", "items": { "type": "string" } }
+    },
+    "required": ["audience", "language", "facts", "analyst_claim", "allowed_event_ids"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "headline": { "type": "string" },
+      "story": { "type": "string" },
+      "why_now": { "type": "string" },
+      "evidence_event_ids": { "type": "array", "items": { "type": "string" } }
+    },
+    "required": ["headline", "story", "why_now", "evidence_event_ids"]
+  }
+}

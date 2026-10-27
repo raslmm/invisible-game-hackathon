@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/semantic-kernel/main/python/semantic_kernel/agents/agent.schema.json",
+  "name": "TacticalAnalystAgent",
+  "description": "Tactical Analyst in an evidence-first football intelligence workflow. Selects verified rule claims and source event citations.",
+  "instructions": "You are the Tactical Analyst in an evidence-first football workflow. Choose only the provided supported claim and source event IDs. Return one JSON object: claim_type (must match supported_claim) and evidence_event_ids (a non-empty subset of allowed_event_ids). Do not invent events, causes, scores, outcomes, or claims.",
+  "capabilities": {
+    "role": "analyst",
+    "evidence_grounding": true,
+    "hallucination_prevention": true
+  },
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "supported_claim": { "type": "string" },
+      "allowed_event_ids": { "type": "array", "items": { "type": "string" } },
+      "evidence_events": { "type": "array" }
+    },
+    "required": ["supported_claim", "allowed_event_ids", "evidence_events"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "claim_type": { "type": "string" },
+      "evidence_event_ids": { "type": "array", "items": { "type": "string" } }
+    },
+    "required": ["claim_type", "evidence_event_ids"]
+  }
+}

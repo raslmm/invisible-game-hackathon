@@ -1,7 +1,13 @@
 """Boundary and evidence checks for deterministic match metrics."""
 from __future__ import annotations
 
+import sys
 import unittest
+from pathlib import Path
+
+_SRC = str(Path(__file__).resolve().parents[1] / "src")
+if _SRC not in sys.path:
+    sys.path.insert(0, _SRC)
 
 from invisible_game import MatchEvent, analyze_match
 

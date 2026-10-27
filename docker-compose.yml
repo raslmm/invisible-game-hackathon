@@ -1,0 +1,11 @@
+services:
+  invisible-game:
+    build: .
+    image: invisible-game:latest
+    container_name: invisible_game_app
+    ports:
+      - "8765:8765"
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
