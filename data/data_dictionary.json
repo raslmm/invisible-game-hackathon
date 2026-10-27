@@ -1,5 +1,5 @@
 {
-  "project": "The Invisible Game",
+  "project": "The Invisible Passes",
   "purpose": "Synthetic event-level football data for detecting persistent tactical exposure while distinguishing it from isolated dangerous events and benign high-possession patterns.",
   "important_notice": "All teams, players, events, match dates, and labels are fictional and synthetically generated. This is not real Premier League data.",
   "dataset_size": {

@@ -1,4 +1,4 @@
-# The Invisible Game
+# The Invisible Passes
 ### Explainable AI Match Intelligence for Football Broadcasts & Fans
 
 [![CI & Quality Checks](https://github.com/raslmm/invisible-game-hackathon/actions/workflows/ci.yml/badge.svg)](https://github.com/raslmm/invisible-game-hackathon/actions/workflows/ci.yml)
@@ -7,7 +7,7 @@
 [![Zero Dependencies](https://img.shields.io/badge/Core%20Runtime-Zero%20Dependencies-purple)](#technology-stack)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**See the game under the game.** *The Invisible Game* transforms a continuous stream of football-realistic synthetic match events into explainable tactical intelligence, automated full-time recaps, on-air broadcast chyrons, and personalized stories for analysts, casual fans, club supporters, and player scouts.
+**See the game under the game.** *The Invisible Passes* transforms a continuous stream of football-realistic synthetic match events into explainable tactical intelligence, automated full-time recaps, on-air broadcast chyrons, and personalized stories for analysts, casual fans, club supporters, and player scouts.
 
 Its central question: **Control or Chaos?** The system mathematically separates a persistent spell of defensive exposure from an isolated dangerous counter-attack, backing every claim with cited source event IDs and verifying numerical fidelity against hallucination.
 
@@ -77,8 +77,8 @@ The repository includes Infrastructure as Code (Bicep & ARM templates) in [`infr
 
 ```powershell
 az containerapp up `
-  --name invisible-game-live `
-  --resource-group rg-invisible-game `
+  --name invisible-passes-live `
+  --resource-group rg-invisible-passes `
   --location eastus `
   --source . `
   --target-port 8765 `

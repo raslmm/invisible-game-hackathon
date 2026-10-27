@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# The Invisible Game uses standard library modules with zero runtime package dependencies
+# The Invisible Passes uses standard library modules with zero runtime package dependencies
 COPY src/ /app/src/
 COPY data/ /app/data/
 COPY web/ /app/web/

@@ -1,8 +1,8 @@
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
-@description('Name of the Invisible Game Container App.')
-param appName string = 'invisible-game-${uniqueString(resourceGroup().id)}'
+@description('Name of the Invisible Passes Container App.')
+param appName string = 'invisible-passes-${uniqueString(resourceGroup().id)}'
 
 @description('Container image to deploy.')
 param containerImage string = 'mcr.microsoft.com/azure-cli:latest'
@@ -63,7 +63,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
     template: {
       containers: [
         {
-          name: 'invisible-game-web'
+          name: 'invisible-passes-web'
           image: containerImage
           resources: {
             cpu: json('0.5')

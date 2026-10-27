@@ -131,7 +131,7 @@ function toggle(){
 function download(){
  if(!S.bundle||!S.recap||!S.finished)return;
  var payload={schema_version:"invisible-game.submission-export.v1",exported_at:new Date().toISOString(),match:S.bundle.match,events:S.bundle.events,analysis:S.bundle.analysis,overlay_messages:S.recap.chapters.map(function(c){return c.overlay;}),recap:S.recap};
- var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=S.bundle.match.match_id+"-invisible-game.json";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
+ var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=S.bundle.match.match_id+"-invisible-passes.json";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
 }
 function error(e){console.error(e);txt("providerBadge","Could not load local match service.");E.storyEmpty.hidden=false;E.storyEmpty.querySelector("strong").textContent="Could not load match data. Check that the local server is running.";}
 function init(){

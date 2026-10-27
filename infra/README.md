@@ -1,6 +1,6 @@
 # Azure Cloud Deployment Guide
 
-This directory provides Infrastructure as Code (IaC) to deploy **The Invisible Game** to Microsoft Azure Container Apps with optional Azure AI Foundry integration.
+This directory provides Infrastructure as Code (IaC) to deploy **The Invisible Passes** to Microsoft Azure Container Apps with optional Azure AI Foundry integration.
 
 ## One-Click Deployment via Azure CLI
 
@@ -9,12 +9,12 @@ This directory provides Infrastructure as Code (IaC) to deploy **The Invisible G
 az login
 
 # 2. Create a resource group
-az group create --name rg-invisible-game --location eastus
+az group create --name rg-invisible-passes --location eastus
 
 # 3. Build and deploy container directly using Azure Container Apps
 az containerapp up \
-  --name invisible-game-live \
-  --resource-group rg-invisible-game \
+  --name invisible-passes-live \
+  --resource-group rg-invisible-passes \
   --location eastus \
   --source . \
   --target-port 8765 \
@@ -22,8 +22,8 @@ az containerapp up \
 
 # 4. (Optional) Configure Azure AI Foundry / Azure OpenAI model endpoint
 az containerapp update \
-  --name invisible-game-live \
-  --resource-group rg-invisible-game \
+  --name invisible-passes-live \
+  --resource-group rg-invisible-passes \
   --set-env-vars \
     AZURE_AI_FOUNDRY_ENDPOINT="https://<your-foundry-resource>.openai.azure.com" \
     AZURE_AI_MODEL_DEPLOYMENT="gpt-4o-mini" \
@@ -36,6 +36,6 @@ Alternatively, deploy using the Bicep template:
 
 ```powershell
 az deployment group create `
-  --resource-group rg-invisible-game `
+  --resource-group rg-invisible-passes `
   --template-file infra/main.bicep
 ```

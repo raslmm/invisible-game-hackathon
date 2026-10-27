@@ -1,3 +1,3 @@
-# The Invisible Game core runs dependency-free using the Python standard library (Python >= 3.10).
+# The Invisible Passes core runs dependency-free using the Python standard library (Python >= 3.10).
 # Optional Azure SDK packages:
 # azure-ai-inference>=1.0.0b1

@@ -67,7 +67,7 @@ class WebAppTests(unittest.TestCase):
 
     def test_static_app_and_health_routes(self) -> None:
         with urlopen(self.base + "/", timeout=5) as response:
-            self.assertIn(b"THE INVISIBLE GAME", response.read())
+            self.assertIn(b"THE INVISIBLE PASSES", response.read())
         self.assertEqual(self.get_json("/api/health")["status"], "ok")
 
     def test_full_bundle_route_is_not_exposed_during_replay(self) -> None:

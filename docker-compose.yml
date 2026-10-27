@@ -1,8 +1,8 @@
 services:
-  invisible-game:
+  invisible-passes:
     build: .
-    image: invisible-game:latest
-    container_name: invisible_game_app
+    image: invisible-passes:latest
+    container_name: invisible_passes_app
     ports:
       - "8765:8765"
     restart: unless-stopped

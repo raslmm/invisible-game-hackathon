@@ -1,4 +1,4 @@
-"""Dependency-free local web server for The Invisible Game demo."""
+"""Dependency-free local web server for The Invisible Passes demo."""
 from __future__ import annotations
 
 import argparse
@@ -29,7 +29,7 @@ MAX_BODY_BYTES = 8192
 
 
 class MatchHandler(BaseHTTPRequestHandler):
-    server_version = "InvisibleGame/1.0"
+    server_version = "InvisiblePasses/1.0"
 
     def _write(self, status: int, body: bytes, content_type: str) -> None:
         self.send_response(status)
@@ -211,7 +211,7 @@ class MatchHandler(BaseHTTPRequestHandler):
                     200,
                     {
                         "status": "ok",
-                        "project": "The Invisible Game",
+                        "project": "The Invisible Passes",
                         "provider": provider_status(),
                     },
                 )
@@ -243,7 +243,7 @@ class MatchHandler(BaseHTTPRequestHandler):
                 self.send_header("Content-Type", "application/json; charset=utf-8")
                 self.send_header(
                     "Content-Disposition",
-                    f'attachment; filename="{match_id}-invisible-game.json"',
+                    f'attachment; filename="{match_id}-invisible-passes.json"',
                 )
                 self.send_header("X-Content-Type-Options", "nosniff")
                 self.send_header("Content-Length", str(len(body)))
@@ -312,7 +312,7 @@ class MatchHandler(BaseHTTPRequestHandler):
 def serve(host: str = "127.0.0.1", port: int = 8765) -> None:
     server = ThreadingHTTPServer((host, port), MatchHandler)
     server.daemon_threads = True
-    print(f"The Invisible Game is ready at http://{host}:{port}", flush=True)
+    print(f"The Invisible Passes is ready at http://{host}:{port}", flush=True)
     print("Synthetic dataset only. Press Ctrl+C to stop.", flush=True)
     try:
         server.serve_forever()
@@ -323,7 +323,7 @@ def serve(host: str = "127.0.0.1", port: int = 8765) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run the local Invisible Game match viewer.")
+    parser = argparse.ArgumentParser(description="Run the local Invisible Passes match viewer.")
     parser.add_argument("--host", default="127.0.0.1", help="Bind address (default 127.0.0.1).")
     parser.add_argument("--port", type=int, default=8765, help="Port (default 8765).")
     args = parser.parse_args()
